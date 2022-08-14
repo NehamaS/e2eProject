@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" time="10.725">
+  <testsuite name="mMCU Cluster Health - signaling" errors="0" failures="0" skipped="1" timestamp="2020-09-10T12:50:37" time="6.122" tests="1">
+    <testcase classname="mMCU Cluster Health - signaling basic conference room" name="mMCU Cluster Health - signaling basic conference room" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="mMCU Load test" errors="0" failures="0" skipped="1" timestamp="2020-09-10T12:50:37" time="6.165" tests="1">
+    <testcase classname="mMCU Load test Create multiple rooms" name="mMCU Load test Create multiple rooms" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="mMCU Cluster Health" errors="0" failures="0" skipped="0" timestamp="2020-09-10T12:50:36" time="9.741" tests="3">
+    <testcase classname="mMCU Cluster Health Checking cluster health" name="mMCU Cluster Health Checking cluster health" time="1.069">
+    </testcase>
+    <testcase classname="mMCU Cluster Health Checking cluster load level" name="mMCU Cluster Health Checking cluster load level" time="0.914">
+    </testcase>
+    <testcase classname="mMCU Cluster Health Checking cluster load level" name="mMCU Cluster Health Checking cluster load level" time="1.745">
+    </testcase>
+  </testsuite>
+</testsuites>

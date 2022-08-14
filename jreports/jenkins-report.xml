@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="40" failures="1" time="39.782">
+  <testsuite name="mMCU Cluster Health - audio =&gt;" errors="0" failures="1" skipped="39" timestamp="2022-03-09T06:38:41" time="38.916" tests="40">
+    <testcase classname="mMCU Cluster Health - audio =&gt; basic audio conference room" name="mMCU Cluster Health - audio =&gt; basic audio conference room" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; audio conference room, missing caller id - return Error on header" name="mMCU Cluster Health - audio =&gt; audio conference room, missing caller id - return Error on header" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; add user to not exist meeting" name="mMCU Cluster Health - audio =&gt; add user to not exist meeting" time="0.001">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; add user with wrong SDP" name="mMCU Cluster Health - audio =&gt; add user with wrong SDP" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; add user with wrong msml" name="mMCU Cluster Health - audio =&gt; add user with wrong msml" time="32.373">
+      <failure>Error: [Error] Error: expect(received).toEqual(expected) // deep equality
+
+Expected: 200
+Received: 408
+    at /home/nehama/WebstormProjects/e2e/steps/conf.room.ts:110:14
+    at Generator.throw (&lt;anonymous&gt;)
+    at rejected (/home/nehama/WebstormProjects/e2e/steps/conf.room.ts:25:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; open audio and DC rooms in parallel" name="mMCU Cluster Health - audio =&gt; open audio and DC rooms in parallel" time="0.001">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; audio conference room, mute and unmute" name="mMCU Cluster Health - audio =&gt; audio conference room, mute and unmute" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; audio conference room, muteAll and unmuteAll" name="mMCU Cluster Health - audio =&gt; audio conference room, muteAll and unmuteAll" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; not supported codec in audio mid - return Error on SDP" name="mMCU Cluster Health - audio =&gt; not supported codec in audio mid - return Error on SDP" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; leaveParticipnat after destroy room - return Error" name="mMCU Cluster Health - audio =&gt; leaveParticipnat after destroy room - return Error" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; destroy destroyed room - return error" name="mMCU Cluster Health - audio =&gt; destroy destroyed room - return error" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; create room twice and destroy twice" name="mMCU Cluster Health - audio =&gt; create room twice and destroy twice" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; create room twice with user and destroy twice" name="mMCU Cluster Health - audio =&gt; create room twice with user and destroy twice" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; create room with sdp - return error" name="mMCU Cluster Health - audio =&gt; create room with sdp - return error" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; hold unhold happy path" name="mMCU Cluster Health - audio =&gt; hold unhold happy path" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; hold unhold sip interface" name="mMCU Cluster Health - audio =&gt; hold unhold sip interface" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; add user without SDP" name="mMCU Cluster Health - audio =&gt; add user without SDP" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; 10 users in parallel" name="mMCU Cluster Health - audio =&gt; 10 users in parallel" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; X users in Y rooms in parallel" name="mMCU Cluster Health - audio =&gt; X users in Y rooms in parallel" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; X users in Y rooms in parallel" name="mMCU Cluster Health - audio =&gt; X users in Y rooms in parallel" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; X users in Y rooms in parallel" name="mMCU Cluster Health - audio =&gt; X users in Y rooms in parallel" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; add user with usedtx in SDP" name="mMCU Cluster Health - audio =&gt; add user with usedtx in SDP" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; open 5 rooms with 20 users, check media-gateway isReady" name="mMCU Cluster Health - audio =&gt; open 5 rooms with 20 users, check media-gateway isReady" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; reInvite data-channel user" name="mMCU Cluster Health - audio =&gt; reInvite data-channel user" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; add two users without SDP" name="mMCU Cluster Health - audio =&gt; add two users without SDP" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; add ssc user to meeting" name="mMCU Cluster Health - audio =&gt; add ssc user to meeting" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; codecs configuration" name="mMCU Cluster Health - audio =&gt; codecs configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; unsupported codec in SDP" name="mMCU Cluster Health - audio =&gt; unsupported codec in SDP" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; deviceID" name="mMCU Cluster Health - audio =&gt; deviceID" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; same user with diff deviceId" name="mMCU Cluster Health - audio =&gt; same user with diff deviceId" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="mMCU Cluster Health - audio =&gt; reInvite with deviceId" name="mMCU Cluster Health - audio =&gt; reInvite with deviceId" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+</testsuites>

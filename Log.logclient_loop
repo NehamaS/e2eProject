@@ -1,0 +1,50 @@
+
+> mcu-e2e@1.0.58 test
+> jest --verbose "steps/audio.room.steps.ts"
+
+  console.info
+    Testing filter:  [ 'TMU-19533' ]
+
+      at parseFeatureTags (setup/init.js:39:11)
+
+2022-03-09T06:38:47.830Z info [{"action":"Start SipClient","data":{"protocol":"UDP","address":"10.1.114.97","port":5694}}] SipClient.BaseSipClient.start /home/nehama/WebstormProjects/e2e/common/sip/base.sip.client.ts 115
+2022-03-09T06:38:47.843Z info [{"test":"add user with wrong msml","action":"mMCU is running on ","mcu":{"address":"sipsvc-dev.il-labs.mavenir.com","port":5060}}] <unknown> conf.room.ts 454
+2022-03-09T06:38:47.848Z info [{"test":"add user with wrong msml","action":"Create conference ","data":"1000051646807927848"}] <unknown> conf.room.ts 322
+2022-03-09T06:38:47.848Z info [{"test":"add user with wrong msml","action":"prepareMediaForTest","data":"Stream is not enabled...."}] <unknown> conf.room.ts 407
+2022-03-09T06:38:47.850Z info [{"test":"add user with wrong msml","action":"createConferenceRoomAction","data":"create audio room 1000051646807927848 for host chandler"}] <unknown> conf.room.ts 41
+2022-03-09T06:38:47.854Z info [{"action":"sip:send, request","data":{"method":"INVITE","uri":"sip:janus@sipsvc-dev.il-labs.mavenir.com:5060","version":"2.0","headers":{"to":{"uri":"sip:janus@sipsvc-dev.il-labs.mavenir.com:5060"},"from":{"uri":"sip:chandler@10.1.114.97:5694","params":{"tag":"1646807927851846"}},"call-id":"16468079278547676","cseq":{"method":"INVITE","seq":1},"P-Mav-Meeting-Id":"1000051646807927848","P-Mav-Dialogue-Type":1,"Accept-Contact":"*;audio","P-Mav-Meeting-Session-ID":"1000051646807927848D2022-03-09T06:38:47.851Z","contact":[{"uri":"sip:chandler@10.1.114.97:5694"}],"via":[]}}}] <unknown> /home/nehama/WebstormProjects/e2e/common/sip/base.sip.client.ts 180
+📦 reporter is created on: /home/nehama/WebstormProjects/e2e/reports/mcu_automation_report.html
+  console.error
+    [{"err":{"status":408,"error":{"reason":"N/A","description":"N/A"},"call-id":"16468079278547676","user":"sip:chandler@10.1.114.97:5694"}}]
+
+      at Printf.template (node_modules/mcu-logger/logger.js:133:33)
+      at Printf.transform (node_modules/logform/printf.js:11:26)
+      at Format.transform (node_modules/logform/combine.js:20:24)
+      at DerivedLogger._transform (node_modules/winston/lib/winston/logger.js:305:29)
+      at DerivedLogger.Object.<anonymous>.Transform._read (node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:177:10)
+      at DerivedLogger.Object.<anonymous>.Transform._write (node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:164:83)
+      at doWrite (node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:409:139)
+
+2022-03-09T06:39:20.154Z error [{"err":{"status":408,"error":{"reason":"N/A","description":"N/A"},"call-id":"16468079278547676","user":"sip:chandler@10.1.114.97:5694"}}] SipClient.sipResposneHandler /home/nehama/WebstormProjects/e2e/common/sip/base.sip.client.ts 166
+2022-03-09T06:39:20.172Z debug [{"action":"Performance","data":{"action":"send:INVITE","duration":32317.423851}}] SipClient.<anonymous> /home/nehama/WebstormProjects/e2e/common/sip/sipClient.ts 15
+  console.error
+    [{"test":"add user with wrong msml","action":"############# createConferenceRoomAction","data":"expect(received).toEqual(expected) // deep equality\n\nExpected: 200\nReceived: 408"}]
+
+      at Printf.template (node_modules/mcu-logger/logger.js:133:33)
+      at Printf.transform (node_modules/logform/printf.js:11:26)
+      at Format.transform (node_modules/logform/combine.js:20:24)
+      at DerivedLogger._transform (node_modules/winston/lib/winston/logger.js:305:29)
+      at DerivedLogger.Object.<anonymous>.Transform._read (node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:177:10)
+      at DerivedLogger.Object.<anonymous>.Transform._write (node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:164:83)
+      at doWrite (node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:409:139)
+
+2022-03-09T06:39:20.192Z error [{"test":"add user with wrong msml","action":"############# createConferenceRoomAction","data":"expect(received).toEqual(expected) // deep equality\n\nExpected: 200\nReceived: 408"}] <unknown> conf.room.ts 104
+  console.assert
+    AssertionError [ERR_ASSERTION]: [add user with wrong msml] createConferenceRoom, error: expect(received).toEqual(expected) // deep equality
+    
+    Expected: 200
+    Received: 408
+
+      at steps/conf.room.ts:109:12
+          at Generator.throw (<anonymous>)
+

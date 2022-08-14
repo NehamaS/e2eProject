@@ -1,0 +1,9 @@
+m=application 0 0 webrtc-datachannel
+c=IN IP4 0
+a=sendrecv
+a=candidate:779251937 1 udp 2122260223 192.168.1.107 58723 typ host generation 0 network-id 1 network-cost 10
+a=candidate:1626442769 1 tcp 1518280447 192.168.1.107 9 typ host tcptype active generation 0 network-id 1 network-cost 10
+a=setup:actpass
+a=mid:0
+a=sctp-port:5000
+a=max-message-size:262144

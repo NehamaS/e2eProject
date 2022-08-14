@@ -1,0 +1,368 @@
+[
+  {
+    "description": " // @load",
+    "keyword": "Feature",
+    "name": "mMCU Load test",
+    "line": 1,
+    "id": "mmcu-load-test",
+    "tags": [],
+    "uri": "/home/eran/workspace/automation/e2e/features/load/conference-load.feature",
+    "elements": [
+      {
+        "id": "mmcu-load-test;create-multiple-rooms",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Create multiple rooms",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "Audio", "ScreenShare"]
+                  },
+                  {
+                    "cells": ["user1", "true", "false"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 6,
+            "name": "create 2 conferences with participants:",
+            "result": {
+              "status": "failed",
+              "duration": 250000000,
+              "error_message": "{\"matcherResult\":{\"pass\":false}}"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "Audio", "ScreenShare"]
+                  },
+                  {
+                    "cells": ["user1", "true", "false"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "validate 2 conferences with participants:",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "Audio", "ScreenShare"]
+                  },
+                  {
+                    "cells": ["user1", "true", "false"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 18,
+            "name": "destroy 2 conferences with participants:",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "Audio", "ScreenShare"]
+                  },
+                  {
+                    "cells": ["user1", "true", "false"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "validate 2 conferences destroy with participants:",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Feature",
+    "name": "mMCU Cluster Health",
+    "line": 1,
+    "id": "mmcu-cluster-health",
+    "tags": [],
+    "uri": "/home/eran/workspace/automation/e2e/features/system-health.feature",
+    "elements": [
+      {
+        "id": "mmcu-cluster-health;checking-cluster-health",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Checking cluster health",
+        "tags": [
+          {
+            "name": "@rest",
+            "line": 3
+          },
+          {
+            "name": "@swarm",
+            "line": 4
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "System is running on 10.45.35.61",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "invoking healthcheck",
+            "result": {
+              "status": "passed",
+              "duration": 784000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "i should get 200 response",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "status is INS",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "mmcu-cluster-health;checking-cluster-load-level",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Checking cluster load level",
+        "tags": [
+          {
+            "name": "@rest",
+            "line": 12
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 14,
+            "name": "System is platform SWARM running on 10.45.35.61",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "invoking cluster-load api on 3443",
+            "result": {
+              "status": "passed",
+              "duration": 829000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "i should get 200 response",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "status is INS",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Feature",
+    "name": "mMCU Cluster Health - signaling",
+    "line": 1,
+    "id": "mmcu-cluster-health---signaling",
+    "tags": [],
+    "uri": "/home/eran/workspace/automation/e2e/features/conference-audio.feature",
+    "elements": [
+      {
+        "id": "mmcu-cluster-health---signaling;basic-conference-room",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "basic conference room",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "System is running on 10.45.35.61",
+            "result": {
+              "status": "passed",
+              "duration": 21000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "create audio conference 100006 for host chandler",
+            "result": {
+              "status": "failed",
+              "duration": 32034000000,
+              "error_message": "{\"matcherResult\":{\"pass\":false}}"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "meetingID"]
+                  },
+                  {
+                    "cells": ["chandler", "100006"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 12,
+            "name": "add participant:",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "meetingID"]
+                  },
+                  {
+                    "cells": ["ROSS", "100006"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 15,
+            "name": "add participant:",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "Sleep 10 sec",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "meetingID"]
+                  },
+                  {
+                    "cells": ["ROSS", "100006"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 19,
+            "name": "leave participant:",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": ["Participant", "meetingID"]
+                  },
+                  {
+                    "cells": ["chandler", "100006"]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 22,
+            "name": "leave participant:",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "destroy audio conference 100006",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

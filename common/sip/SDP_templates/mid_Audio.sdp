@@ -1,0 +1,23 @@
+m=audio 0 0 111
+c=IN IP4 0
+a=sendrecv
+a=candidate:3246356071 1 udp 2122262783 2a02:14c:35c:9200:bcc0:ee70:b0ed:d0af 47629 typ host generation 0 network-id 2 network-cost 10
+a=candidate:400621884 1 udp 2122194687 10.0.0.6 57094 typ host generation 0 network-id 1 network-cost 10
+a=candidate:2415692439 1 tcp 1518283007 2a02:14c:35c:9200:bcc0:ee70:b0ed:d0af 9 typ host tcptype active generation 0 network-id 2 network-cost 10
+a=candidate:1499659724 1 tcp 1518214911 10.0.0.6 9 typ host tcptype active generation 0 network-id 1 network-cost 10
+a=mid:0
+a=msid:Ng6otmRkL2hdryDNOjZKGx6bidhFJ6rgPyWQ cf2380a9-92fd-456d-9118-b5063d626584
+a=rtcp-mux
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:5 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id
+a=extmap:6 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=ssrc:0 cname:rFdwn98daX6n6KQC
+a=ssrc:0 msid:Ng6otmRkL2hdryDNOjZKGx6bidhFJ6rgPyWQ cf2380a9-92fd-456d-9118-b5063d626584
+a=ssrc:0 mslabel:Ng6otmRkL2hdryDNOjZKGx6bidhFJ6rgPyWQ
+a=ssrc:0 label:cf2380a9-92fd-456d-9118-b5063d626584

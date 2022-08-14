@@ -1,0 +1,88 @@
+pipeline {
+    agent {
+        docker {
+            //label 'jenkins-docker-slave'
+            label 'mkmsh'
+            image 'artifactory-il.intinfra.com/ngn-mcu-k8s-docker-eng/app-builder-alpine'
+            args constructJenkinsSlaveContainerArgs()
+        }
+    }
+    options {
+        timestamps()
+    }
+
+    environment {
+        APP_VERSION = constructVersion()
+        APP_NAME = extractJobName()
+        MCU_NAMESPACE = "mvnr-mtcil1-appln-ngn-mcu"
+        //MCU_PRIVATE_DOCKER_REGISTRY_ADDRESS = "artifactory.intinfra.com"
+        MCU_PRIVATE_DOCKER_REGISTRY_ADDRESS = 'dr.mavenir-ngn.com:5000'
+        MCU_PRIVATE_DOCKER_REGISTRY_CURL = 'artifactory'
+        MCU_PRIVATE_DOCKER_REGISTRY_CONTEXT = 'k8s-mcu'
+        MCU_PRIVATE_HELM_REGISTRY_CONTEXT = 'ngn-mcu-k8s-helm-eng'
+        CHARTMUSEUM = 'chartmuseum'
+    }
+
+
+    stages {
+            stage('Run full regression - DEV') {
+                steps {
+                    parallel(
+                            "K8s": {
+                                build(
+                                        job: 'mcu-e2e-sanity/dev',
+                                        parameters: [
+                                                [
+                                                        $class: 'StringParameterValue',
+                                                        name  : 'MCU_HOME',
+                                                        value : "sipsvc-dev.il-labs.mavenir.com"
+                                                ],
+                                                [
+                                                        $class: 'StringParameterValue',
+                                                        name  : 'PLATFORM_TYPE',
+                                                        value : "K8S"
+                                                ],
+                                                [
+                                                        $class: 'StringParameterValue',
+                                                        name  : 'STREAM',
+                                                        value : "TRUE"
+                                                ],
+                                                [
+                                                        $class: 'StringParameterValue',
+                                                        name  : 'RANDOMIZE_MEETING_ID',
+                                                        value : "TRUE"
+                                                ],
+                                                [
+                                                        $class: 'StringParameterValue',
+                                                        name  : 'TAGS',
+                                                        value : "skipnightly"
+                                                ],
+                                        ]
+                                )
+                            })
+                }
+            }
+        }
+}
+
+// Define version using current date and current build number
+def String constructVersion() {
+    return "${java.time.LocalDate.now()}-${env.BUILD_NUMBER}"
+}
+// Extract the job name from the JOB_NAME env var
+def String extractJobName() {
+    return env.JOB_NAME.tokenize('/')[0]
+}
+
+def constructJenkinsSlaveContainerArgs() {
+    node {
+        println "BUILD_TAG: ${env.BUILD_TAG}"
+        return "-u root " +
+                "--name jenkins-docker-slave-builder-" + env.BUILD_TAG.replaceAll("%2F", "-") + " " +
+                "-v /var/run/docker.sock:/var/run/docker.sock " +
+                "-v /usr/bin/docker:/usr/bin/docker " +
+                "-v $HOME/.docker:/root/.docker " +
+                "-v $HOME/.kube:/root/.kube " +
+                "-v $HOME/.m2:/root/.m2"
+    }
+}

@@ -1,0 +1,4 @@
+a=candidate:3246356071 1 udp 2122262783 2a02:14c:35c:9200:bcc0:ee70:b0ed:d0af 43302 typ host generation 0 network-id 2 network-cost 10
+a=candidate:400621884 1 udp 2122194687 10.0.0.6 36209 typ host generation 0 network-id 1 network-cost 10
+a=candidate:2415692439 1 tcp 1518283007 2a02:14c:35c:9200:bcc0:ee70:b0ed:d0af 9 typ host tcptype active generation 0 network-id 2 network-cost 10
+a=candidate:1499659724 1 tcp 1518214911 10.0.0.6 9 typ host tcptype active generation 0 network-id 1 network-cost 10

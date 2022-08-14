@@ -1,0 +1,15 @@
+v=0
+o=mcu 3346392276034647 7869805645899167 IN IP4 10.106.146.11
+s=conference room:687909
+t=0 0
+a=group:BUNDLE 0
+m=audio 0 RTP/AVP 123 110
+c=IN IP4 10.106.146.25
+a=mid:chandler@gmail.com
+a=sendrecv
+a=rtcp-mux
+a=rtpmap:123 opus/48000/2
+a=fmtp:123 maxplaybackrate=48000; stereo=0; sprop-stereo=0; useinbandfec=1
+a=rtpmap:110 telephone-event/48000
+a=ssrc:77562234 cname:mrfaudio
+a=ptime:20

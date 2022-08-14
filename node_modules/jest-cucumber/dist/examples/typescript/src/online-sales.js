@@ -1,0 +1,28 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var itemPrices = {
+    'Autographed Neil deGrasse Tyson book': 100,
+    'Rick Astley t-shirt': 22,
+    'An idea to replace EVERYTHING with blockchains': 0,
+};
+var OnlineSales = /** @class */ (function () {
+    function OnlineSales() {
+        this.listedItems = [];
+    }
+    OnlineSales.prototype.listItem = function (name) {
+        this.listedItems.push(name);
+    };
+    OnlineSales.prototype.sellItem = function (name) {
+        var itemIndex = this.listedItems.indexOf(name);
+        if (itemIndex !== -1) {
+            this.listedItems.splice(itemIndex, 1);
+            return itemPrices[name];
+        }
+        else {
+            return null;
+        }
+    };
+    return OnlineSales;
+}());
+exports.OnlineSales = OnlineSales;
+//# sourceMappingURL=online-sales.js.map

@@ -1,0 +1,27 @@
+v=0
+o=ccs-0-349-1 03461877975098 1575903885 IN IP4 0
+s=-
+c=IN IP4 0
+b=AS:80
+b=RS:1000
+b=RR:3000
+t=0 0
+m=audio 0 RTP/AVP 111 0 112 101
+b=AS:80
+b=RS:1000
+b=RR:3000
+a=ptime:20
+a=sendrecv
+a=msi:mavodi-0-14d-9-1-ffffffff-12dc3509-@10.1.63.13
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:0 PCMU/8000/1
+a=rtpmap:112 AMR/8000/1
+a=fmtp:112 octet-align=1
+a=rtpmap:101 telephone-event/8000/1
+a=fmtp:101 0-15
+a=ice-ufrag:+nlh
+a=ice-pwd:WKff96YVemit8QcF72Xhtl
+a=ice-options:trickle
+a=fingerprint:sha-256 D2:B9:31:8F:DF:24:D8:0E:ED:D2:EF:25:9E:AF:6F:B8:34:AE:53:9C:E6:F3:8F:F2:64:15:FA:E8:7F:53:2D:38

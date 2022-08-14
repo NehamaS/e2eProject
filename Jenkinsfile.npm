@@ -1,0 +1,52 @@
+pipeline {
+    agent {
+        label 'generic'
+    }
+    options {
+        timestamps()
+    }
+    stages {
+        stage('checkout') {
+            steps {
+                git branch: 'dev',
+                        credentialsId: '4fc4aa4c-5ce0-4c3a-808c-3182bceccdeb',
+                        url: 'ssh://git@bb.mavenir.com:7999/mcu/e2e.git'
+            }
+        }
+
+        stage('patch NPM version') {
+            steps {
+                sshagent(['4fc4aa4c-5ce0-4c3a-808c-3182bceccdeb']) {
+                    sh 'npm config set registry http://10.106.146.20:8081'
+                    //sh "npm config set registry https://artifactory.intinfra.com/artifactory/api/npm/mcu-npm-virtual/"
+                    sh 'npm version patch -m "MCU-1706: update version"'
+                }
+            }
+        }
+
+        stage('build NPM module') {
+            //remove tgz file create in local folder (dist)
+            steps {
+                sh '''#!/bin/bash
+                  set -x
+                  source ~/.profile
+                  npm install
+                  npm run build-common
+                  cp README.md dist/README.md
+                  rm dist/mcu-e2e*.tgz
+                  cd dist
+                  npm config set registry http://10.106.146.20:8081
+                  npm publish
+           '''
+            }
+        }
+
+        stage('push to dev') {
+            steps {
+                sshagent(['4fc4aa4c-5ce0-4c3a-808c-3182bceccdeb']) {
+                    sh 'git push origin dev'
+                }
+            }
+        }
+    }
+}

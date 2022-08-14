@@ -1,0 +1,96 @@
+pipeline {
+agent none
+parameters {
+        string(name: 'MCU_HOME', defaultValue: 'sipsvc-baremetal.il-labs.mavenir.com', description: 'mMCU address')
+        string(name: 'TAGS', defaultValue: 'all', description: 'comma delimited string of scenario tags: sanity,audio,TMU-2222...')
+        string(name: 'STREAM', defaultValue: 'TRUE', description: 'enable/disable stream')
+        string(name: 'USERS', defaultValue: '10', description: 'num of users per room')
+        string(name: 'SPEAK_USERS', defaultValue: '3', description: 'num of speak users per room')
+        string(name: 'VIDEO_PUB_USERS', defaultValue: '5', description: 'num of video pub users per room')
+        string(name: 'ROOMS', defaultValue: '30', description: 'num of rooms')
+        string(name: 'DURATION', defaultValue: '200', description: 'duration of load')
+        string(name: 'FAILURE_MECHANISM', defaultValue: 'TRUE', description: 'enable/disable failure mechanism')
+        string(name: 'DELAY_BETWEEN_CREATE_ROOMS', defaultValue: '65', description: 'delay between create rooms in seconds')
+        string(name: 'DELAY_BETWEEN_CREATE_USERS', defaultValue: '4', description: 'delay between create rooms in seconds')
+        string(name: 'DELAY_BETWEEN_STOP_STREAM', defaultValue: '2', description: 'delay between create rooms in seconds')
+        string(name: 'DELAY_BETWEEN_CLOSE_ROOMS', defaultValue: '2', description: 'delay between create rooms in seconds')
+        string(name: 'EXPECTED_SD', defaultValue: '1', description: 'expected Standard deviation in MB')
+        string(name: 'EXPECTED_FAILURE_THRESHOULD', defaultValue: '10', description: 'expected failure threshould in case failure mechanism set to true')
+
+    }
+    environment {
+        STREAM="${params.STREAM}"
+        TAGS="${params.TAGS}"
+        PLATFORM_TYPE="${params.PLATFORM_TYPE}"
+        MCU_HOME="${params.MCU_HOME}"
+        USERS="${params.USERS}"
+        SPEAK_USERS="${params.SPEAK_USERS}"
+        VIDEO_PUB_USERS="${params.VIDEO_PUB_USERS}"
+        ROOMS="${params.ROOMS}"
+        DURATION="${params.DURATION}"
+        FAILURE_MECHANISM="${params.FAILURE_MECHANISM}"
+        DELAY_BETWEEN_CREATE_ROOMS="${params.DELAY_BETWEEN_CREATE_ROOMS}"
+        DELAY_BETWEEN_CREATE_USERS="${params.DELAY_BETWEEN_CREATE_USERS}"
+        DELAY_BETWEEN_CLOSE_ROOMS="${params.DELAY_BETWEEN_CLOSE_ROOMS}"
+        DELAY_BETWEEN_STOP_STREAM="${params.DELAY_BETWEEN_STOP_STREAM}"
+        EXPECTED_SD="${params.EXPECTED_SD}"
+        EXPECTED_FAILURE_THRESHOULD="${params.EXPECTED_FAILURE_THRESHOULD}"
+                                }
+stages {
+    stage('Run load on both machines') {
+        parallel {
+            stage('run on first client') {
+                agent {
+                    label "load1"
+                }
+               steps {
+                    sh '''
+                       #!/bin/bash
+                       echo `docker stop $(docker ps -a -q --filter ancestor='dr.mavenir-ngn.com:5000/mcu-dev/macmesh:01')`
+                       cd e2e
+                       npm set registry http://10.106.146.20:8081
+                       npm install
+                       npm run load
+                        '''
+                                    }
+               }
+            stage('run on second client') {
+                agent {
+                    label "load2"
+                }
+                steps {
+                      sh '''
+                        #!/bin/bash
+                        echo `docker stop $(docker ps -a -q --filter ancestor='dr.mavenir-ngn.com:5000/mcu-dev/macmesh:01')`
+                        cd e2e
+                        npm set registry http://10.106.146.20:8081
+                        npm install
+                        npm run load
+                        '''
+                      }
+            }
+             stage('run on third client') {
+                 agent {
+                     label "load3"
+                 }
+                 steps {
+                        sh '''
+                          #!/bin/bash
+                          echo `docker stop $(docker ps -a -q --filter ancestor='dr.mavenir-ngn.com:5000/mcu-dev/macmesh:01')`
+                          cd e2e
+                          npm set registry http://10.106.146.20:8081
+                          npm install
+                          npm run load
+                                    '''
+                             }
+               }
+        }
+    }
+  }
+}
+
+
+
+
+
+
